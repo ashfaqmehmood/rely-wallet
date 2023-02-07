@@ -136,6 +136,9 @@ PODS:
     - MLImage (= 1.0.0-beta3)
     - MLKitCommon (~> 8.0)
     - Protobuf (~> 3.12)
+  - MMKV (1.2.15):
+    - MMKVCore (~> 1.2.15)
+  - MMKVCore (1.2.15)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -375,9 +378,18 @@ PODS:
     - glog
   - react-native-fingerprint-scanner (6.0.0):
     - React
+  - react-native-flipper (0.177.0):
+    - React-Core
+  - react-native-mmkv (2.6.1):
+    - MMKV (>= 1.2.13)
+    - React-Core
   - react-native-onesignal (4.5.0):
     - OneSignalXCFramework (= 3.12.3)
     - React (< 1.0.0, >= 0.13.0)
+  - react-native-pager-view (6.1.0-rc.2):
+    - React-Core
+  - react-native-randombytes (3.6.1):
+    - React-Core
   - react-native-safe-area-context (4.5.0):
     - RCT-Folly
     - RCTRequired
@@ -492,7 +504,9 @@ PODS:
     - RNNotifee/NotifeeCore (= 7.4.0)
   - RNNotifee/NotifeeCore (7.4.0):
     - React-Core
-  - RNReanimated (2.14.2):
+  - RNOS (1.2.6):
+    - React
+  - RNReanimated (2.14.3):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -597,7 +611,11 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-fingerprint-scanner (from `../node_modules/react-native-fingerprint-scanner`)
+  - react-native-flipper (from `../node_modules/react-native-flipper`)
+  - react-native-mmkv (from `../node_modules/react-native-mmkv`)
   - react-native-onesignal (from `../node_modules/react-native-onesignal`)
+  - react-native-pager-view (from `../node_modules/react-native-pager-view`)
+  - react-native-randombytes (from `../node_modules/react-native-randombytes`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -623,6 +641,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNInAppBrowser (from `../node_modules/react-native-inappbrowser-reborn`)
   - "RNNotifee (from `../node_modules/@notifee/react-native`)"
+  - RNOS (from `../node_modules/react-native-os`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - "RNSentry (from `../node_modules/@sentry/react-native`)"
@@ -658,6 +677,8 @@ SPEC REPOS:
     - MLKitBarcodeScanning
     - MLKitCommon
     - MLKitVision
+    - MMKV
+    - MMKVCore
     - nanopb
     - OneSignalXCFramework
     - OpenSSL-Universal
@@ -712,8 +733,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/logger"
   react-native-fingerprint-scanner:
     :path: "../node_modules/react-native-fingerprint-scanner"
+  react-native-flipper:
+    :path: "../node_modules/react-native-flipper"
+  react-native-mmkv:
+    :path: "../node_modules/react-native-mmkv"
   react-native-onesignal:
     :path: "../node_modules/react-native-onesignal"
+  react-native-pager-view:
+    :path: "../node_modules/react-native-pager-view"
+  react-native-randombytes:
+    :path: "../node_modules/react-native-randombytes"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-webview:
@@ -764,6 +793,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-inappbrowser-reborn"
   RNNotifee:
     :path: "../node_modules/@notifee/react-native"
+  RNOS:
+    :path: "../node_modules/react-native-os"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -813,6 +844,8 @@ SPEC CHECKSUMS:
   MLKitBarcodeScanning: d92fe1911001ec36870162c5a0eb206f612b7169
   MLKitCommon: f6da6c5659618c070b50a80db01248ebe2964175
   MLKitVision: 96c96571190b7f63eddf4a12068ce8a8689e0d2c
+  MMKV: 7f34558bbb5a33b0eaefae2de4b6a20a2ffdad6f
+  MMKVCore: ddf41b9d9262f058419f9ba7598719af56c02cd3
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   OneSignalXCFramework: 75844c29607ca95e6176f6f21257b4382c7fdbfb
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
@@ -833,7 +866,11 @@ SPEC CHECKSUMS:
   React-jsinspector: 5061fcbec93fd672183dfb39cc2f65e55a0835db
   React-logger: a6c0b3a807a8e81f6d7fea2e72660766f55daa50
   react-native-fingerprint-scanner: ac6656f18c8e45a7459302b84da41a44ad96dbbe
+  react-native-flipper: ccf9059793e4b36cb4e6e5e54208a5e01acba248
+  react-native-mmkv: 28af0c2a3dc9495c2cea80f9d41444e096c2a1ef
   react-native-onesignal: fe498771f4a5c49fac0d8ff288b674e226bdb587
+  react-native-pager-view: 037b3949788e38cb5ddfb44b854012804e803655
+  react-native-randombytes: 421f1c7d48c0af8dbcd471b0324393ebf8fe7846
   react-native-safe-area-context: 39c2d8be3328df5d437ac1700f4f3a4f75716acc
   react-native-webview: 994b9f8fbb504d6314dc40d83f94f27c6831b3bf
   React-perflogger: e5fc4149e9bbb972b8520277f3b23141faa47a36
@@ -859,7 +896,8 @@ SPEC CHECKSUMS:
   RNGestureHandler: 071d7a9ad81e8b83fe7663b303d132406a7d8f39
   RNInAppBrowser: e36d6935517101ccba0e875bac8ad7b0cb655364
   RNNotifee: da8dcf09f079ea22f46e239d7c406e10d4525a5f
-  RNReanimated: 820c545f174f056788d12e17fe18b861ec30d5b6
+  RNOS: 6f2f9a70895bbbfbdad7196abd952e7b01d45027
+  RNReanimated: e32ae73e91d08be37bdd733e59857d6ac00a49e9
   RNScreens: ea4cd3a853063cda19a4e3c28d2e52180c80f4eb
   RNSentry: acebe4104a6f5915ae871eb59dc73f13dcc92ef7
   RNShare: 48b3113cd089a2be8ff0515c3ae7a46a4db8a76b
@@ -874,6 +912,6 @@ SPEC CHECKSUMS:
   Yoga: c618b544ff8bd8865cdca602f00cbcdb92fd6d31
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 00938a9df4b239167f0247f78cd4fd3d0ad8efbe
+PODFILE CHECKSUM: 47d1ac0ef653e5666a872a619c306ad8fa2ffcbd
 
 COCOAPODS: 1.11.3

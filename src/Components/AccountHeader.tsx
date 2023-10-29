@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Jazzicon from 'react-native-jazzicon';
+import Jazzicon from 'react-jazzicon';
 import makeBlockie from 'ethereum-blockies-base64';
 import { RootState } from '@/Store';
 import { useTheme } from '@/Hooks';

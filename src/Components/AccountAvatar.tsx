@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Jazzicon from 'react-native-jazzicon';
+import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
 // import Blockies from 'react-native-blockies';
 import { RootState } from '@/Store';
 import { useTheme } from '@/Hooks';
@@ -30,7 +30,7 @@ const AccountAvatar: React.FunctionComponent<Props> = ({ toggleAccountModal, wal
           // @ts-ignore
           // navigation.toggleDrawer();
         }}>
-        <Jazzicon size={64} address={wallet.address} />
+        <Jazzicon diameter={64} seed={jsNumberForAddress(wallet.address)} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => toggleAccountModal()}

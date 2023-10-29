@@ -31,7 +31,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Jazzicon from 'react-native-jazzicon';
+import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -581,7 +581,7 @@ const Browser = () => {
       default:
         return (
           <View style={{ marginLeft: 6, marginRight: 6, marginVertical: 5 }}>
-            <Jazzicon size={48} address={slug} />
+            <Jazzicon diameter={48} seed={jsNumberForAddress(slug)} />
           </View>
         );
     }
@@ -1170,7 +1170,7 @@ const Browser = () => {
                 key={index}>
                 <View
                   style={{ marginLeft: 6, marginRight: 6, marginVertical: 5 }}>
-                  <Jazzicon size={48} address={item.address} />
+                  <Jazzicon diameter={48} seed={jsNumberForAddress(item.address)} />
                 </View>
                 <View style={{ marginLeft: 10 }}>
                   <View
@@ -1294,7 +1294,7 @@ const Browser = () => {
               justifyContent: 'center',
               paddingTop: '10%',
             }}>
-            <Jazzicon size={64} />
+            <Jazzicon diameter={64} />
             <BottomSheetTextInput
               onChangeText={(text: any) => setAccountName(text)}
               placeholder="Account Name"
@@ -1449,7 +1449,7 @@ const Browser = () => {
                 borderRadius: 10,
                 padding: 10,
               }}>
-              <Jazzicon size={48} address={activeWallet.address} />
+              <Jazzicon diameter={48} seed={jsNumberForAddress(activeWallet.address)} />
               <View
                 style={{
                   flex: 1,
@@ -1618,7 +1618,7 @@ const Browser = () => {
                 borderRadius: 10,
                 padding: 10,
               }}>
-              <Jazzicon size={48} address={activeWallet.address} />
+              <Jazzicon diameter={48} seed={jsNumberForAddress(activeWallet.address)} />
               <View
                 style={{
                   flex: 1,

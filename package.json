@@ -46,7 +46,7 @@
     "json-rpc-engine": "^6.1.0",
     "lodash": "^4.17.21",
     "moralis": "^2.11.1",
-    "next": "^14.0.0",
+    "next": "^14.2.10",
     "path-browserify": "0.0.0",
     "punycode": "^1.2.4",
     "querystring-es3": "~0.2.0",
@@ -100,7 +100,7 @@
     "util": "~0.10.3",
     "vision-camera-code-scanner": "^0.2.0",
     "vm-browserify": "0.0.4",
-    "web3": "^4.2.1",
+    "web3": "^4.13.0",
     "yarn": "^1.22.19"
   },
   "devDependencies": {

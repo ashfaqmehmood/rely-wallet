@@ -46,7 +46,7 @@
     "json-rpc-engine": "^6.1.0",
     "lodash": "^4.17.21",
     "moralis": "^2.11.1",
-    "next": "^14.0.0",
+    "next": "^14.2.7",
     "path-browserify": "0.0.0",
     "punycode": "^1.2.4",
     "querystring-es3": "~0.2.0",
